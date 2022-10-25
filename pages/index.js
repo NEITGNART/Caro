@@ -82,7 +82,7 @@ const Game = () => {
     const [isDraw, setIsDraw] = useState(false);
     const [stepNum, setStepNum] = useState(0);
     const [moveWining, setMoveWining] = useState(null);
-    const [isAsc, setIsAsc] = useState(false);
+    const [isAsc, setIsAsc] = useState(true);
 
     useEffect(() => {
         const winner = calculateWinner(history[stepNum]);
@@ -142,7 +142,7 @@ const Game = () => {
         </div>
         <div className="game-info">
             <div>{status}</div>
-            <button onClick={() => setIsAsc((prev) => !prev)}>Reverse the order</button>
+            <button onClick={() => setIsAsc((prev) => !prev)}>Change the order to {isAsc? 'descending': 'ascending'}</button>
             <ol>{isAsc ? moves : moves.slice().reverse()}</ol>
         </div>
     </div>);
@@ -150,7 +150,7 @@ const Game = () => {
 
 export default function Home() {
     return (<>
-        <title>Caro nhẹ nhàng</title>
+        <title>Caro vui vẻ</title>
         <Game/>
     </>);
 }
